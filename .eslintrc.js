@@ -3,7 +3,8 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'eslint:recommended',
+  // extends: 'eslint:recommended',
+  extends: 'kagura',
   parserOptions: {
     ecmaVersion: 12,
   },
