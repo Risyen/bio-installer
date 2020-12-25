@@ -18,5 +18,8 @@
     "git-clone": "^0.1.0",
     "ora": "^5.1.0",
     "prompt-sync": "^4.2.0"
+  },
+  "bin": {
+    "create-mia-bio": "./src/index.js"
   }
 }

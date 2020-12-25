@@ -56,6 +56,6 @@ const entrance = (async () => {
   const projectName = project
   await installer(projectPath)
   await done(projectPath, projectName)
-})
+})()
 
 module.exports = entrance

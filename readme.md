@@ -2,4 +2,4 @@
 
 ### Usage
 
-Run `npm init xxx`
+Run `npm init mia-bio`
