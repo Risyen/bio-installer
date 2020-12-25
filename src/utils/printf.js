@@ -9,7 +9,7 @@ const logColor = (text) => chalk.hex('#bdbdbd')(text)
 
 const cyanColor = (text) => chalk.cyan(text)
 
-const dangerColor = (text) => chalk.hex('#e5156a')(text)
+const doneColor = (text) => chalk.hex('#e5156a')(text)
 
 const prompText = (text) => {
   text = text.replace('project name', chalk.bold('project name'))
@@ -25,7 +25,7 @@ const welcome = () => {
 module.exports = {
   logColor,
   cyanColor,
-  dangerColor,
+  doneColor,
   prompText,
   welcome,
 }

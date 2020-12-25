@@ -4,10 +4,12 @@ const gitClone = require('git-clone')
 const promptSync = require('prompt-sync')
 const printf = require('../utils/printf')
 
+const spinner = require('../utils/loading')
+
 const getProject = async (required = false) => {
   const prompt = promptSync()
   const answer = printf.prompText(
-    `>You need to name the project${required ? '(required)' : ''}:''<`
+    `>You need to name the project${required ? '(required)' : ''}:''<`,
   )
   let project = prompt(answer)
   if (project === null) throw new Error('Error. Nothing has changed.')
@@ -17,6 +19,7 @@ const getProject = async (required = false) => {
 
 const installer = (projectPath) =>
   new Promise((resolve, reject) => {
+    spinner.start('template installing...')
     gitClone(
       'https://github.com/Risyen/Mia.bio',
       projectPath,
@@ -25,9 +28,11 @@ const installer = (projectPath) =>
       },
       (err) => {
         if (err) return reject(new Error(`Error. ${err}`))
-        console.log('')
+        spinner.succeed(true)
+        spinner.start('installation is Complete, Enjoy it')
+        spinner.succeed()
         resolve()
-      }
+      },
     )
   })
 
@@ -39,10 +44,10 @@ const done = async (projectPath, projectName) => {
     name: projectName,
     version: '1.0.0',
   })
-  delete pkg.author
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
 }
 
-;(async () => {
+const entrance = (async () => {
   const project = await getProject()
   const projectPath = path.join(process.cwd(), project)
   if (fs.existsSync(projectPath)) {
@@ -50,4 +55,7 @@ const done = async (projectPath, projectName) => {
   }
   const projectName = project
   await installer(projectPath)
-})()
+  await done(projectPath, projectName)
+})
+
+module.exports = entrance
