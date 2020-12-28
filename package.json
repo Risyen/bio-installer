@@ -1,15 +1,21 @@
 {
   "name": "create-mia-bio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
-  "keywords": [],
+  "keywords": [
+    "create-mia-bio"
+  ],
   "author": "kagura",
-  "dependencies": {
+  "dependencies": {},
+  "bin": {
+    "create-mia-bio": "./src/index.js"
+  },
+  "devDependencies": {
     "ansi-escapes": "^4.3.1",
     "chalk": "^4.1.0",
     "eslint": "^7.16.0",
@@ -18,8 +24,5 @@
     "git-clone": "^0.1.0",
     "ora": "^5.1.0",
     "prompt-sync": "^4.2.0"
-  },
-  "bin": {
-    "create-mia-bio": "./src/index.js"
   }
 }

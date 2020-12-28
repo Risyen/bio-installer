@@ -11,7 +11,7 @@ const igonreList = ['.git']
 const getProject = async (required = false) => {
   const prompt = promptSync()
   const answer = printf.prompText(
-    `>You need to name the project${required ? '(required)' : ''}:''<`
+    `>You need to name the project${required ? '(required)' : ''}:''<`,
   )
   let project = prompt(answer)
   if (project === null) throw new Error('Error. Nothing has changed.')
@@ -34,7 +34,7 @@ const installer = (projectPath) =>
         spinner.start('installation is Complete, Enjoy it')
         spinner.succeed()
         resolve()
-      }
+      },
     )
   })
 
@@ -43,7 +43,7 @@ const done = async (projectPath, projectName) => {
     igonreList.map(async (name) => {
       const ignoreFile = path.join(projectPath, name)
       await fs.remove(ignoreFile)
-    })
+    }),
   )
   const pkgPath = path.join(projectPath, 'package.json')
   if (!fs.existsSync(pkgPath)) return
