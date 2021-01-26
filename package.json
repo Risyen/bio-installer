@@ -11,7 +11,7 @@
     "create-mia-bio"
   ],
   "author": "kagura",
-  "dependencies": { 
+  "dependencies": {
     "ansi-escapes": "^4.3.1",
     "chalk": "^4.1.0",
     "eslint": "^7.16.0",
@@ -19,11 +19,10 @@
     "fs-extra": "^9.0.1",
     "git-clone": "^0.1.0",
     "ora": "^5.1.0",
-    "prompt-sync": "^4.2.0"},
+    "prompt-sync": "^4.2.0"
+  },
   "bin": {
     "create-mia-bio": "./src/index.js"
   },
-  "devDependencies": {
-   
-  }
+  "devDependencies": {}
 }
